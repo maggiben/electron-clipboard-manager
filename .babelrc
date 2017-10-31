@@ -1,0 +1,45 @@
+{
+  "presets": [
+    [
+      "env", {
+        "targets": {
+          "node": "current"
+        }
+      }
+    ],
+    "react",
+    "stage-0"
+  ],
+  "env": {
+    "test": {
+      "plugins": [ "istanbul" ]
+    },
+    "development": {
+      "plugins": [
+        [
+          "flow-runtime", {
+            "assert": true,
+            "annotate": true
+          }
+        ]
+      ]
+    },
+    "production": {
+      "plugins": [
+        "transform-flow-strip-types"
+      ]
+    }
+  },
+  "sourceMaps": true,
+  "compact": false,
+  "plugins": [
+    "transform-decorators-legacy",
+    [
+      "transform-runtime", {
+        "helpers": false,
+        "polyfill": false,
+        "regenerator": false
+      }
+    ]
+  ]
+}

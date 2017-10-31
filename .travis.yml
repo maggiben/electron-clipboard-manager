@@ -1,0 +1,22 @@
+language: node_js
+cache:
+  directories:
+    - ~/.npm
+    - node_modules
+notifications:
+  email: false
+node_js:
+  - '8'
+# Trigger a push build on master
+branches:
+  only:
+    - master
+before_script:
+  - npm prune
+  - npm install -g flow-typed
+script:
+  - flow-typed install
+  - npm run test
+after_success:
+  - npm run semantic-release
+
